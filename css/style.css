@@ -609,8 +609,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); }
 .hero-scroll {
   position: absolute;
   bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   z-index: 2;
   color: var(--text-dim);
   font-size: 0.72rem;
@@ -1431,13 +1431,11 @@ body.show-alcohol .alcohol-disclaimer { display: flex !important; }
 }
 @media (max-width: 768px) {
   /* ── Header ── */
-  .site-header { padding: 0 12px; gap: 6px; height: 60px; }
+  .site-header { padding: 0 12px; gap: 6px; height: 60px; justify-content: space-between; }
   .header-nav  { display: none; }
   .status-sub  { display: none; }
-  /* Статус «открыто» убираем из шапки */
   .site-header .status-pill { display: none !important; }
-  /* Иконки прижимаем вправо */
-  .header-actions { margin-left: auto; }
+  .header-actions { margin-left: 0; gap: 8px; }
   /* Кнопка бронирования — только иконка телефона, без текста */
   .btn-book { padding: 9px 10px; gap: 0; font-size: 0; border-radius: 50%; min-width: 40px; justify-content: center; }
   .btn-book i { font-size: 1.1rem; margin: 0; }
