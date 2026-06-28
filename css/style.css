@@ -1434,8 +1434,10 @@ body.show-alcohol .alcohol-disclaimer { display: flex !important; }
   .site-header { padding: 0 12px; gap: 6px; height: 60px; }
   .header-nav  { display: none; }
   .status-sub  { display: none; }
-  /* Статус «открыто» убираем из шапки — он уже есть на главной странице */
+  /* Статус «открыто» убираем из шапки */
   .site-header .status-pill { display: none !important; }
+  /* Иконки прижимаем вправо */
+  .header-actions { margin-left: auto; }
   /* Кнопка бронирования — только иконка телефона, без текста */
   .btn-book { padding: 9px 10px; gap: 0; font-size: 0; border-radius: 50%; min-width: 40px; justify-content: center; }
   .btn-book i { font-size: 1.1rem; margin: 0; }
@@ -1446,6 +1448,8 @@ body.show-alcohol .alcohol-disclaimer { display: flex !important; }
 
   /* ── Мобильное меню (гамбургер) ── */
   .hamburger { display: flex; }
+  /* Кнопка звонка в меню — тёмный текст на янтарном фоне */
+  .mobile-nav a.btn-primary { color: #0c0c0e !important; font-size: 1rem; }
   .mobile-nav a {
     display: flex;
     align-items: center;
