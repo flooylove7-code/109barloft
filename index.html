@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>109 Bar Loft — Бар Лофт · Советская, 109</title>
+  <meta name="description" content="109 Bar Loft — уютный бар-лофт в самом центре. Авторские бургеры, крафтовое пиво, коктейли и кальяны. Советская, 109." />
+  <meta property="og:title"       content="109 Bar Loft" />
+  <meta property="og:description" content="Уютный бар-лофт с тёплым светом, авторскими бургерами и собственными настойками." />
+  <meta property="og:image"       content="f/f1.jpg" />
+  <meta property="og:type"        content="restaurant" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BarOrPub","name":"109 Bar Loft","address":{"@type":"PostalAddress","streetAddress":"Советская, 109"},"telephone":"+79995888109","url":"https://vk.com/bar109","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"12:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"12:00","closes":"03:00"}],"servesCuisine":"Bar food","menu":"menu.html","hasMap":"https://yandex.ru/maps/org/109_bar_loft/158132759435/"}
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+</head>
+<body>
+
+<!-- Grain & Vignette -->
+<svg style="display:none" aria-hidden="true">
+  <filter id="grain-filter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="vignette"      aria-hidden="true"></div>
+<div class="cursor-glow"   aria-hidden="true"></div>
+
+<!-- Age Gate -->
+<div id="age-gate" class="age-gate-overlay" role="dialog" aria-modal="true" aria-label="Подтверждение возраста">
+  <div class="age-gate-box">
+    <div class="age-gate-glow"></div>
+    <div class="age-gate-bulb" aria-hidden="true">
+      <svg width="72" height="96" viewBox="0 0 72 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="36" cy="40" rx="28" ry="30" fill="#f3b441" fill-opacity="0.15" stroke="#f3b441" stroke-width="2"/>
+        <path d="M24 52 C24 64 48 64 48 52" stroke="#f3b441" stroke-width="2" fill="none"/>
+        <rect x="28" y="64" width="16" height="5" rx="2" fill="#c98a2b"/>
+        <rect x="30" y="69" width="12" height="5" rx="2" fill="#c98a2b"/>
+        <line x1="36" y1="74" x2="36" y2="84" stroke="#c98a2b" stroke-width="2"/>
+        <path d="M36 28 L36 36 M28 32 L34 37 M44 32 L38 37" stroke="#ffd27a" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2>Добро пожаловать<br>в 109 Bar Loft</h2>
+    <p>На сайте представлены алкогольные напитки и кальяны.<br>Пожалуйста, подтвердите свой возраст.</p>
+    <div class="age-gate-actions">
+      <button id="age-yes" class="btn btn-primary">Да, мне есть 18</button>
+      <button id="age-no"  class="age-gate-no">Нет</button>
+    </div>
+    <div id="age-denied" class="age-gate-denied">
+      Доступ на сайт ограничен. Возвращайтесь, когда вам исполнится 18 лет.
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <a href="index.html" class="header-logo" aria-label="109 Bar Loft — Главная">
+    <div class="logo-circle">
+      <img src="f/f1.jpg" alt="Логотип 109 Bar Loft" width="44" height="44" />
+    </div>
+    <div class="logo-name">109 Bar Loft<span>Бар · Лофт</span></div>
+  </a>
+
+  <nav class="header-nav" aria-label="Главная навигация">
+    <a href="index.html" class="active"><i class="ph-fill ph-house"></i>Главная</a>
+    <a href="menu.html"><i class="ph-fill ph-book-open-text"></i>Меню</a>
+    <a href="atmosphere.html"><i class="ph-fill ph-lightbulb"></i>Атмосфера</a>
+    <a href="reviews.html"><i class="ph-fill ph-star"></i>Отзывы</a>
+    <a href="contacts.html"><i class="ph-fill ph-map-pin"></i>Контакты</a>
+  </nav>
+
+  <div class="header-actions">
+    <div class="status-pill" role="status" aria-live="polite" aria-label="Статус заведения">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>
+        <span class="status-main">…</span>
+        <div class="status-sub"></div>
+      </span>
+    </div>
+    <button class="light-switch" title="Приглушить свет" aria-label="Переключить освещение">
+      <i class="ph ph-lightbulb" aria-hidden="true"></i>
+    </button>
+    <a href="tel:89995888109" class="btn-book" aria-label="Забронировать стол — позвонить">
+      <i class="ph ph-phone" aria-hidden="true"></i>
+      Забронировать
+    </a>
+    <button class="hamburger" aria-label="Открыть меню навигации" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" aria-label="Мобильная навигация">
+  <a href="index.html"><i class="ph-fill ph-house"></i>Главная</a>
+  <a href="menu.html"><i class="ph-fill ph-book-open-text"></i>Меню</a>
+  <a href="atmosphere.html"><i class="ph-fill ph-lightbulb"></i>Атмосфера</a>
+  <a href="reviews.html"><i class="ph-fill ph-star"></i>Отзывы</a>
+  <a href="contacts.html"><i class="ph-fill ph-map-pin"></i>Контакты</a>
+  <a href="tel:89995888109" class="btn btn-primary mt-4">
+    <i class="ph ph-phone"></i> 8 999 588-81-09
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true" poster="s/s7.jpg">
+    <source src="video/video1.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Hanging bulbs -->
+  <div class="hero-lightbulbs" aria-hidden="true">
+    <div class="hero-bulb"><div class="hero-bulb-cord"></div><div class="hero-bulb-icon">💡</div></div>
+    <div class="hero-bulb"><div class="hero-bulb-cord" style="height:90px"></div><div class="hero-bulb-icon">💡</div></div>
+    <div class="hero-bulb"><div class="hero-bulb-cord" style="height:70px"></div><div class="hero-bulb-icon">💡</div></div>
+    <div class="hero-bulb"><div class="hero-bulb-cord" style="height:110px"></div><div class="hero-bulb-icon">💡</div></div>
+    <div class="hero-bulb"><div class="hero-bulb-cord" style="height:80px"></div><div class="hero-bulb-icon">💡</div></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="f/f1.jpg" alt="109 Bar Loft" class="hero-logo-img" width="110" height="110" />
+    </div>
+    <p class="hero-tagline">Тепло · Уютно · Вкусно</p>
+    <h1 class="hero-title" id="hero-title">
+      <span class="amber">109</span><br>Bar Loft
+    </h1>
+    <p class="hero-sub">Советская, 109 — здесь горит твоя лампочка</p>
+
+    <div class="hero-status">
+      <div class="hero-status-wrap">
+        <div class="status-pill" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>
+            <span class="status-main">…</span>
+            <div class="status-sub"></div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="menu.html"     class="btn btn-primary btn-lg"><i class="ph ph-book-open-text" aria-hidden="true"></i> Смотреть меню</a>
+      <a href="contacts.html" class="btn btn-outline btn-lg"><i class="ph ph-map-pin" aria-hidden="true"></i> Как добраться</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    Листай вниз
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- COZY SECTION -->
+<section class="section" aria-labelledby="cozy-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Интерьер</span>
+      <div class="section-divider"></div>
+      <h2 id="cozy-title">У нас уютно</h2>
+    </div>
+    <div class="cozy-grid">
+      <div class="cozy-card reveal reveal-delay-1" data-lightbox="s/s7.jpg">
+        <img src="s/s7.jpg" alt="Интерьер бара — мягкий свет и диваны" loading="lazy" />
+        <div class="cozy-card-overlay">
+          <p>Здесь время идёт медленнее. Тёплый свет, мягкие диваны и тишина, в которой хочется задержаться.</p>
+        </div>
+      </div>
+      <div class="cozy-card reveal reveal-delay-2" data-lightbox="s/s8.jpg">
+        <img src="s/s8.jpg" alt="Лофт с кирпичными стенами и лампочками" loading="lazy" />
+        <div class="cozy-card-overlay">
+          <p>Лофт без пафоса: кирпич, дерево и десятки лампочек, что греют не хуже камина.</p>
+        </div>
+      </div>
+      <div class="cozy-card reveal reveal-delay-3" data-lightbox="s/s10.jpg">
+        <img src="s/s10.jpg" alt="Атмосферный уголок бара" loading="lazy" />
+        <div class="cozy-card-overlay">
+          <p>Заходишь на минутку — остаёшься на вечер. Так у нас всегда.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASTE SECTION -->
+<section class="section" style="background:linear-gradient(180deg, transparent 0%, rgba(243,180,65,0.03) 50%, transparent 100%)" aria-labelledby="taste-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Кухня и бар</span>
+      <div class="section-divider"></div>
+      <h2 id="taste-title">Вкус — наш приоритет</h2>
+      <p>Мы готовим так, будто зовём вас в гости. Каждое блюдо — с характером, каждый коктейль — с историей.</p>
+    </div>
+    <div class="taste-grid reveal">
+      <!-- col 1 rows 1-2 (tall) -->
+      <div class="taste-item taste-tall">
+        <img src="s/s2.jpg" alt="Авторский бургер" loading="lazy" />
+      </div>
+      <!-- cols 2-3 row 1 (wide) -->
+      <div class="taste-item taste-wide">
+        <img src="s/s3.jpg" alt="Крафтовый коктейль" loading="lazy" />
+      </div>
+      <!-- col 2 row 2 -->
+      <div class="taste-item">
+        <img src="s/s4.jpg" alt="Горячее блюдо" loading="lazy" />
+      </div>
+      <!-- col 3 row 2 -->
+      <div class="taste-item">
+        <img src="s/s5.jpg" alt="Закуски" loading="lazy" />
+      </div>
+      <!-- cols 1-2 row 3 (wide) -->
+      <div class="taste-item taste-wide">
+        <img src="s/s9.jpg" alt="Десерт" loading="lazy" />
+      </div>
+      <!-- col 3 row 3 -->
+      <div class="taste-item">
+        <img src="s/s11.jpg" alt="Напитки" loading="lazy" />
+      </div>
+    </div>
+    <p class="reveal mt-6 text-center" style="color:var(--text-muted);max-width:600px;margin-left:auto;margin-right:auto">
+      Авторские бургеры, настойки собственного приготовления и крафт, который меняется так же часто, как наше настроение.
+    </p>
+  </div>
+</section>
+
+<!-- BUSINESS LUNCH BANNER -->
+<section class="section-sm" aria-labelledby="lunch-title">
+  <div class="container">
+    <div class="lunch-banner reveal">
+      <div class="lunch-badge" aria-label="Скидка 15%">−15%</div>
+      <div class="lunch-content">
+        <h3 id="lunch-title">Бизнес-ланч каждый день</h3>
+        <p>Скидка на всё меню 15%. Ежедневно с 12:00 до 17:00,<br>кроме выходных и праздничных дней.</p>
+        <a href="menu.html#biz" class="btn btn-outline btn-sm mt-4" style="margin-top:16px">
+          <i class="ph ph-lightning" aria-hidden="true"></i> Смотреть меню ланча
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS TEASER -->
+<section class="section" aria-labelledby="reviews-teaser-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Гости о нас</span>
+      <div class="section-divider"></div>
+      <h2 id="reviews-teaser-title">Нас любят</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">А</div>
+          <div class="review-meta">
+            <div class="review-name">Александр К.</div>
+            <div class="review-date">Яндекс.Карты</div>
+          </div>
+        </div>
+        <div class="review-stars" aria-label="Оценка: 5 из 5">★★★★★</div>
+        <p class="review-text">Отличное место! Атмосфера очень уютная, тёплый свет, приятная музыка. Бургеры просто огонь — особенно «109». Обязательно вернёмся!</p>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">М</div>
+          <div class="review-meta">
+            <div class="review-name">Мария Д.</div>
+            <div class="review-date">Яндекс.Карты</div>
+          </div>
+        </div>
+        <div class="review-stars" aria-label="Оценка: 5 из 5">★★★★★</div>
+        <p class="review-text">Была здесь с подругами. Настойки собственного приготовления — это что-то особенное! Попробовали ягодный сет, остались в восторге. Персонал внимательный и вежливый.</p>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">Д</div>
+          <div class="review-meta">
+            <div class="review-name">Дмитрий Е.</div>
+            <div class="review-date">Яндекс.Карты</div>
+          </div>
+        </div>
+        <div class="review-stars" aria-label="Оценка: 5 из 5">★★★★★</div>
+        <p class="review-text">Крафтовое пиво на высоте! Пивное плато под матч — лучший вечер пятницы. Интерьер в стиле лофт очень нравится — лампочки, кирпич, всё как надо.</p>
+      </div>
+    </div>
+    <div class="text-center mt-6 reveal">
+      <a href="reviews.html" class="btn btn-outline">
+        <i class="ph ph-star" aria-hidden="true"></i> Все отзывы
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VK SECTION -->
+<section class="section" aria-labelledby="vk-section-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Соцсети</span>
+      <div class="section-divider"></div>
+      <h2 id="vk-section-title">Живём здесь — в ВКонтакте</h2>
+      <p>Новости, акции, меню — всё самое актуальное в нашем сообществе</p>
+    </div>
+    <div class="vk-block reveal">
+      <div class="vk-block-inner">
+        <div id="vk-widget"></div>
+      </div>
+    </div>
+    <div class="text-center mt-6 reveal">
+      <a href="https://vk.com/bar109" target="_blank" rel="noopener" class="btn btn-outline">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.583-1.496c.595-.19 1.36 1.26 2.172 1.817.613.42 1.079.328 1.079.328l2.168-.03s1.134-.07.596-.963c-.044-.073-.314-.661-1.616-1.869-1.364-1.265-1.181-1.061.462-3.252.999-1.332 1.399-2.146 1.274-2.494-.12-.332-.855-.244-.855-.244l-2.44.015s-.181-.025-.315.056c-.132.079-.216.265-.216.265s-.388 1.038-.904 1.92c-1.088 1.85-1.524 1.948-1.703 1.833-.414-.268-.311-1.075-.311-1.648 0-1.793.272-2.54-.527-2.733-.266-.064-.46-.107-1.138-.114-.871-.009-1.609.002-2.026.208-.278.135-.492.438-.361.455.161.02.527.099.72.363.249.341.24 1.107.24 1.107s.143 2.11-.333 2.372c-.327.176-.775-.183-1.737-1.828-.494-.853-.867-1.797-.867-1.797s-.072-.18-.201-.276c-.157-.117-.375-.154-.375-.154l-2.319.015s-.348.01-.476.161c-.114.135-.009.414-.009.414s1.814 4.244 3.869 6.382c1.884 1.96 4.025 1.832 4.025 1.832h.97z"/></svg>
+        Открыть сообщество
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="section" aria-labelledby="booking-cta-title">
+  <div class="container">
+    <div class="booking-cta reveal">
+      <span class="section-label">Бронирование</span>
+      <h2 id="booking-cta-title" style="margin-top:12px">Хотите занять лучший столик<br>под мягким светом?</h2>
+      <p>Звоните — оставим место для вас. Работаем каждый день с 12:00.</p>
+      <div class="booking-cta-actions">
+        <a href="tel:89995888109" class="btn btn-primary btn-lg">
+          <i class="ph ph-phone-call" aria-hidden="true"></i>
+          <span>
+            <span class="phone-big">8 999 588-81-09</span>
+          </span>
+        </a>
+      </div>
+      <p class="phone-hint">Звоните — забронируем стол</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flex gap-3" style="align-items:center;margin-bottom:8px">
+          <div class="logo-circle" style="width:36px;height:36px">
+            <img src="f/f1.jpg" alt="" aria-hidden="true" />
+          </div>
+          <div class="logo-name">109 Bar Loft<span>Бар · Лофт</span></div>
+        </div>
+        <p>Тёплое место для тех, кто ценит уют, вкус и настоящую атмосферу. Лампочка здесь никогда не гаснет.</p>
+        <div class="footer-socials">
+          <a href="https://vk.com/bar109" class="social-btn" target="_blank" rel="noopener" aria-label="ВКонтакте">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.583-1.496c.595-.19 1.36 1.26 2.172 1.817.613.42 1.079.328 1.079.328l2.168-.03s1.134-.07.596-.963c-.044-.073-.314-.661-1.616-1.869-1.364-1.265-1.181-1.061.462-3.252.999-1.332 1.399-2.146 1.274-2.494-.12-.332-.855-.244-.855-.244l-2.44.015s-.181-.025-.315.056c-.132.079-.216.265-.216.265s-.388 1.038-.904 1.92c-1.088 1.85-1.524 1.948-1.703 1.833-.414-.268-.311-1.075-.311-1.648 0-1.793.272-2.54-.527-2.733-.266-.064-.46-.107-1.138-.114-.871-.009-1.609.002-2.026.208-.278.135-.492.438-.361.455.161.02.527.099.72.363.249.341.24 1.107.24 1.107s.143 2.11-.333 2.372c-.327.176-.775-.183-1.737-1.828-.494-.853-.867-1.797-.867-1.797s-.072-.18-.201-.276c-.157-.117-.375-.154-.375-.154l-2.319.015s-.348.01-.476.161c-.114.135-.009.414-.009.414s1.814 4.244 3.869 6.382c1.884 1.96 4.025 1.832 4.025 1.832h.97z"/></svg>
+          </a>
+          <a href="tel:89995888109" class="social-btn" aria-label="Позвонить нам">
+            <i class="ph ph-phone" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Навигация</h5>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="menu.html">Меню</a></li>
+          <li><a href="atmosphere.html">Атмосфера</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Режим работы</h5>
+        <table class="footer-hours-table">
+          <tbody>
+            <tr><td>Вс – Чт</td><td>12:00 – 00:00</td></tr>
+            <tr><td>Пт – Сб</td><td>12:00 – 03:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="footer-col">
+        <h5>Контакты</h5>
+        <div class="footer-contact-item">
+          <i class="ph ph-map-pin" aria-hidden="true"></i>
+          <span>Советская, 109</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="ph ph-phone" aria-hidden="true"></i>
+          <a href="tel:89995888109">8 999 588-81-09</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="ph ph-share-network" aria-hidden="true"></i>
+          <a href="https://vk.com/bar109" target="_blank" rel="noopener">vk.com/bar109</a>
+        </div>
+        <a href="tel:89995888109" class="btn btn-primary btn-sm mt-4" style="margin-top:14px;display:inline-flex">
+          <i class="ph ph-phone-call" aria-hidden="true"></i> Забронировать стол
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2025 109 Bar Loft. Все права защищены.</p>
+    <div class="badge-18" aria-label="18+">18+</div>
+  </div>
+  <div class="footer-disclaimer">
+    Чрезмерное употребление алкоголя вредит вашему здоровью. Продажа алкоголя лицам до 18 лет запрещена.
+  </div>
+</footer>
+
+<script src="js/menu-data.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Bottom nav (mobile) -->
+<nav class="bottom-nav" aria-label="Нижняя навигация">
+  <a href="index.html" class="bottom-nav-item active"><i class="ph-fill ph-house"></i><span>Главная</span></a>
+  <a href="menu.html" class="bottom-nav-item"><i class="ph-fill ph-book-open-text"></i><span>Меню</span></a>
+  <a href="atmosphere.html" class="bottom-nav-item"><i class="ph-fill ph-lightbulb"></i><span>Атмосфера</span></a>
+  <a href="reviews.html" class="bottom-nav-item"><i class="ph-fill ph-star"></i><span>Отзывы</span></a>
+  <a href="contacts.html" class="bottom-nav-item"><i class="ph-fill ph-map-pin"></i><span>Контакты</span></a>
+</nav>
+</body>
+</html>

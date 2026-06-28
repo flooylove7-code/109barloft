@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Меню — 109 Bar Loft</title>
+  <meta name="description" content="Полное меню 109 Bar Loft: бургеры, горячие блюда, салаты, коктейли, крафтовое пиво, настойки, чай, десерты." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <filter id="grain-filter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="vignette"      aria-hidden="true"></div>
+<div class="cursor-glow"   aria-hidden="true"></div>
+
+<!-- Age Gate -->
+<div id="age-gate" class="age-gate-overlay" role="dialog" aria-modal="true">
+  <div class="age-gate-box">
+    <div class="age-gate-glow"></div>
+    <div class="age-gate-bulb">
+      <svg width="72" height="96" viewBox="0 0 72 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="36" cy="40" rx="28" ry="30" fill="#f3b441" fill-opacity="0.15" stroke="#f3b441" stroke-width="2"/>
+        <path d="M24 52 C24 64 48 64 48 52" stroke="#f3b441" stroke-width="2" fill="none"/>
+        <rect x="28" y="64" width="16" height="5" rx="2" fill="#c98a2b"/>
+        <rect x="30" y="69" width="12" height="5" rx="2" fill="#c98a2b"/>
+        <line x1="36" y1="74" x2="36" y2="84" stroke="#c98a2b" stroke-width="2"/>
+        <path d="M36 28 L36 36 M28 32 L34 37 M44 32 L38 37" stroke="#ffd27a" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2>Добро пожаловать<br>в 109 Bar Loft</h2>
+    <p>На сайте представлены алкогольные напитки и кальяны.<br>Пожалуйста, подтвердите свой возраст.</p>
+    <div class="age-gate-actions">
+      <button id="age-yes" class="btn btn-primary">Да, мне есть 18</button>
+      <button id="age-no"  class="age-gate-no">Нет</button>
+    </div>
+    <div id="age-denied" class="age-gate-denied">Доступ ограничен. Возвращайтесь, когда вам исполнится 18 лет.</div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <a href="index.html" class="header-logo">
+    <div class="logo-circle">
+      <img src="f/f1.jpg" alt="109 Bar Loft" width="44" height="44" />
+    </div>
+    <div class="logo-name">109 Bar Loft<span>Бар · Лофт</span></div>
+  </a>
+  <nav class="header-nav" aria-label="Навигация">
+    <a href="index.html"><i class="ph-fill ph-house"></i>Главная</a>
+    <a href="menu.html" class="active"><i class="ph-fill ph-book-open-text"></i>Меню</a>
+    <a href="atmosphere.html"><i class="ph-fill ph-lightbulb"></i>Атмосфера</a>
+    <a href="reviews.html"><i class="ph-fill ph-star"></i>Отзывы</a>
+    <a href="contacts.html"><i class="ph-fill ph-map-pin"></i>Контакты</a>
+  </nav>
+  <div class="header-actions">
+    <div class="status-pill" role="status" aria-live="polite">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span><span class="status-main">…</span><div class="status-sub"></div></span>
+    </div>
+    <button class="light-switch" title="Приглушить свет" aria-label="Переключить освещение">
+      <i class="ph ph-lightbulb" aria-hidden="true"></i>
+    </button>
+    <a href="tel:89995888109" class="btn-book">
+      <i class="ph ph-phone" aria-hidden="true"></i> Забронировать
+    </a>
+    <button class="hamburger" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Мобильная навигация">
+  <a href="index.html"><i class="ph-fill ph-house"></i>Главная</a>
+  <a href="menu.html"><i class="ph-fill ph-book-open-text"></i>Меню</a>
+  <a href="atmosphere.html"><i class="ph-fill ph-lightbulb"></i>Атмосфера</a>
+  <a href="reviews.html"><i class="ph-fill ph-star"></i>Отзывы</a>
+  <a href="contacts.html"><i class="ph-fill ph-map-pin"></i>Контакты</a>
+  <a href="tel:89995888109" class="btn btn-primary mt-4"><i class="ph ph-phone"></i> 8 999 588-81-09</a>
+</nav>
+
+<!-- Page Hero -->
+<div class="menu-hero">
+  <div class="container">
+    <span class="section-label">Полное меню</span>
+    <div class="section-divider"></div>
+    <h1 style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:12px">Всё, что горит в наших руках</h1>
+    <p style="color:var(--text-muted);max-width:500px;margin:0 auto">
+      Авторские бургеры, настойки собственного приготовления, крафтовое пиво и тёплые напитки
+    </p>
+    <div style="margin-top:20px;display:flex;justify-content:center">
+      <div class="status-pill" role="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span><span class="status-main">…</span><div class="status-sub"></div></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Controls -->
+<div class="menu-controls" role="search" aria-label="Поиск и фильтры меню">
+  <div class="container">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <div class="menu-search-wrap">
+        <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+        <input type="search" id="menu-search" class="menu-search" placeholder="Поиск по меню…" aria-label="Поиск по меню" />
+      </div>
+      <button id="filter-reset" class="filter-reset" aria-label="Сбросить фильтры">
+        <i class="ph ph-x" aria-hidden="true"></i> Сбросить
+      </button>
+    </div>
+
+    <div class="menu-filters" role="group" aria-label="Фильтры">
+      <button class="filter-chip active" data-filter="all">Всё</button>
+      <button class="filter-chip" data-filter="noalc">Без алкоголя</button>
+      <button class="filter-chip" data-filter="18plus">18+</button>
+      <button class="filter-chip" data-filter="spicy">Острое</button>
+      <button class="filter-chip" data-filter="veg">Вегетарианское</button>
+      <button class="filter-chip" data-filter="burger">Бургеры</button>
+      <button class="filter-chip" data-filter="hot">Горячее</button>
+      <button class="filter-chip" data-filter="salad">Салаты</button>
+      <button class="filter-chip" data-filter="starter">Закуски</button>
+      <button class="filter-chip" data-filter="dessert">Десерты</button>
+      <button class="filter-chip" data-filter="cocktail">Коктейли</button>
+      <button class="filter-chip" data-filter="tea">Чай / Кофе</button>
+      <button class="filter-chip" data-filter="discount">Скидка 15%</button>
+    </div>
+
+    <div class="menu-cat-nav" role="navigation" aria-label="Навигация по разделам">
+      <button class="menu-cat-btn" data-cat="biz">Бизнес-бургеры</button>
+      <button class="menu-cat-btn" data-cat="burgers">Гамбургеры</button>
+      <button class="menu-cat-btn" data-cat="starters">Стартеры</button>
+      <button class="menu-cat-btn" data-cat="hot">Горячее</button>
+      <button class="menu-cat-btn" data-cat="salads">Салаты</button>
+      <button class="menu-cat-btn" data-cat="soups">Супы</button>
+      <button class="menu-cat-btn" data-cat="garnish">Гарниры</button>
+      <button class="menu-cat-btn" data-cat="kids">Детское</button>
+      <button class="menu-cat-btn" data-cat="snacks">Закуски</button>
+      <button class="menu-cat-btn" data-cat="cuts">Нарезки</button>
+      <button class="menu-cat-btn" data-cat="vodka">Водка</button>
+      <button class="menu-cat-btn" data-cat="cocktails">Коктейли</button>
+      <button class="menu-cat-btn" data-cat="shots">Шоты</button>
+      <button class="menu-cat-btn" data-cat="wine">Вина</button>
+      <button class="menu-cat-btn" data-cat="beer">Пиво</button>
+      <button class="menu-cat-btn" data-cat="hookah">Кальяны</button>
+      <button class="menu-cat-btn" data-cat="tea">Чай</button>
+      <button class="menu-cat-btn" data-cat="coffee">Кофе</button>
+      <button class="menu-cat-btn" data-cat="desserts">Десерты</button>
+    </div>
+  </div>
+</div>
+
+<!-- Menu Content (rendered by JS) -->
+<main class="menu-content" id="menu-content-wrap">
+  <div class="container">
+    <div id="menu-content"></div>
+    <div class="menu-empty" role="status" aria-live="polite">
+      <div class="menu-empty-icon" aria-hidden="true">
+        <svg width="48" height="64" viewBox="0 0 72 96" fill="none">
+          <ellipse cx="36" cy="40" rx="28" ry="30" fill="#f3b441" fill-opacity="0.1" stroke="#c98a2b" stroke-width="2"/>
+          <path d="M24 52 C24 64 48 64 48 52" stroke="#c98a2b" stroke-width="2" fill="none"/>
+          <rect x="28" y="64" width="16" height="5" rx="2" fill="#c98a2b" fill-opacity="0.5"/>
+        </svg>
+      </div>
+      <p>Ничего не нашли — спросите у официанта</p>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flex gap-3" style="align-items:center;margin-bottom:8px">
+          <div class="logo-circle" style="width:36px;height:36px"><img src="f/f1.jpg" alt="" aria-hidden="true"/></div>
+          <div class="logo-name">109 Bar Loft<span>Бар · Лофт</span></div>
+        </div>
+        <p>Тёплое место для тех, кто ценит уют, вкус и настоящую атмосферу.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Навигация</h5>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="menu.html">Меню</a></li>
+          <li><a href="atmosphere.html">Атмосфера</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Режим работы</h5>
+        <table class="footer-hours-table"><tbody>
+          <tr><td>Вс – Чт</td><td>12:00 – 00:00</td></tr>
+          <tr><td>Пт – Сб</td><td>12:00 – 03:00</td></tr>
+        </tbody></table>
+      </div>
+      <div class="footer-col">
+        <h5>Контакты</h5>
+        <div class="footer-contact-item"><i class="ph ph-map-pin"></i><span>Советская, 109</span></div>
+        <div class="footer-contact-item"><i class="ph ph-phone"></i><a href="tel:89995888109">8 999 588-81-09</a></div>
+        <div class="footer-contact-item"><i class="ph ph-share-network"></i><a href="https://vk.com/bar109" target="_blank" rel="noopener">vk.com/bar109</a></div>
+        <a href="tel:89995888109" class="btn btn-primary btn-sm" style="margin-top:14px;display:inline-flex">
+          <i class="ph ph-phone-call"></i> Забронировать стол
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2025 109 Bar Loft. Все права защищены.</p>
+    <div class="badge-18" aria-label="18+">18+</div>
+  </div>
+  <div class="footer-disclaimer">
+    Чрезмерное употребление алкоголя вредит вашему здоровью. Продажа алкоголя лицам до 18 лет запрещена.
+  </div>
+</footer>
+
+<script src="js/menu-data.js"></script>
+<script src="js/main.js"></script>
+
+<nav class="bottom-nav" aria-label="Нижняя навигация">
+  <a href="index.html" class="bottom-nav-item"><i class="ph-fill ph-house"></i><span>Главная</span></a>
+  <a href="menu.html" class="bottom-nav-item active"><i class="ph-fill ph-book-open-text"></i><span>Меню</span></a>
+  <a href="atmosphere.html" class="bottom-nav-item"><i class="ph-fill ph-lightbulb"></i><span>Атмосфера</span></a>
+  <a href="reviews.html" class="bottom-nav-item"><i class="ph-fill ph-star"></i><span>Отзывы</span></a>
+  <a href="contacts.html" class="bottom-nav-item"><i class="ph-fill ph-map-pin"></i><span>Контакты</span></a>
+</nav>
+</body>
+</html>
