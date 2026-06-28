@@ -1431,45 +1431,28 @@ body.show-alcohol .alcohol-disclaimer { display: flex !important; }
 }
 @media (max-width: 768px) {
   /* ── Header ── */
-  .site-header { padding: 0 16px; gap: 8px; }
+  .site-header { padding: 0 12px; gap: 6px; height: 60px; }
   .header-nav  { display: none; }
   .status-sub  { display: none; }
-  .site-header .status-pill { display: none; } /* статус уже есть на главной */
-  .hamburger   { display: none; }              /* заменён нижней навигацией */
-  .mobile-nav  { display: none; }
+  /* Статус «открыто» убираем из шапки — он уже есть на главной странице */
+  .site-header .status-pill { display: none !important; }
+  /* Кнопка бронирования — только иконка телефона, без текста */
+  .btn-book { padding: 9px 10px; gap: 0; font-size: 0; border-radius: 50%; min-width: 40px; justify-content: center; }
+  .btn-book i { font-size: 1.1rem; margin: 0; }
+  /* Логотип чуть компактнее */
+  .logo-circle { width: 36px; height: 36px; }
+  .logo-name { font-size: 0.7rem; }
+  .logo-name span { font-size: 0.52rem; }
 
-  /* ── Bottom nav ── */
-  .bottom-nav {
+  /* ── Мобильное меню (гамбургер) ── */
+  .hamburger { display: flex; }
+  .mobile-nav a {
     display: flex;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 999;
-    background: rgba(12,12,14,0.97);
-    backdrop-filter: blur(20px) saturate(1.4);
-    border-top: 1px solid rgba(243,180,65,0.13);
-    padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
-    justify-content: space-around;
-  }
-  .bottom-nav-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 5px 4px;
-    color: rgba(244,239,230,0.4);
-    text-decoration: none;
-    font-size: 0.56rem;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-    min-width: 0;
+    gap: 12px;
+    font-size: 1rem;
   }
-  .bottom-nav-item i { font-size: 1.3rem; line-height: 1; }
-  .bottom-nav-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 52px; }
-  .bottom-nav-item.active { color: var(--amber); }
-  .bottom-nav-item.active i { filter: drop-shadow(0 0 5px rgba(243,180,65,0.55)); }
-  body { padding-bottom: 68px; }
+  .mobile-nav a i { font-size: 1.2rem; color: var(--amber); }
 
   /* ── Layouts ── */
   .hero-bulb:nth-child(n+4) { display: none; }
@@ -1566,25 +1549,41 @@ body.show-alcohol .alcohol-disclaimer { display: flex !important; }
   display: none;
   position: fixed;
   inset: 0;
-  top: 72px;
-  background: rgba(12,12,14,0.97);
-  backdrop-filter: blur(20px);
-  z-index: 999;
+  top: 60px; /* высота шапки на мобилке */
+  background: rgba(10,10,12,0.98);
+  backdrop-filter: blur(24px);
+  z-index: 998;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 24px;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 20px 16px 100px;
+  overflow-y: auto;
 }
 .mobile-nav.open { display: flex; }
 .mobile-nav a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-muted);
-  padding: 12px 24px;
-  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
   transition: var(--transition);
-  text-align: center;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
 }
-.mobile-nav a:hover { color: var(--amber); background: rgba(243,180,65,0.06); }
+.mobile-nav a i {
+  font-size: 1.3rem;
+  color: var(--amber-dark);
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+.mobile-nav a:hover, .mobile-nav a.active {
+  color: var(--amber);
+  background: rgba(243,180,65,0.06);
+}
+.mobile-nav a:hover i, .mobile-nav a.active i { color: var(--amber); }
+.mobile-nav a.btn { justify-content: center; margin-top: 12px; border-bottom: none; }
